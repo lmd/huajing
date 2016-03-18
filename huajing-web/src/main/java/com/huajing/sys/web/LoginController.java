@@ -4,14 +4,12 @@ package com.huajing.sys.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.huajing.common.web.BaseController;
 import com.huajing.sys.entity.User;
 import com.huajing.sys.service.LogService;
 
@@ -21,7 +19,7 @@ import com.huajing.sys.service.LogService;
 * @date 2016年2月26日 上午11:13:51
  */
 @Controller
-public class LoginController extends BaseController{
+public class LoginController{
 	@Autowired
 	private LogService logService;
 	
@@ -32,7 +30,7 @@ public class LoginController extends BaseController{
 	public String login(HttpServletRequest request, HttpServletResponse response, Model model) {
 		System.out.println("登陆控制器");
 		User user = new User();
-		user.setLoginName("ltr");
+		user.setLoginName("lmd");
 		user.setPassword("sorry");
 		logService.login(user);
 		return "";
@@ -49,7 +47,6 @@ public class LoginController extends BaseController{
 	/**
 	 * 登录成功，进入管理首页
 	 */
-	@RequiresPermissions("user")
 	@RequestMapping(value = "${adminPath}")
 	public String index(HttpServletRequest request, HttpServletResponse response) {
 		return "modules/sys/sysIndex";

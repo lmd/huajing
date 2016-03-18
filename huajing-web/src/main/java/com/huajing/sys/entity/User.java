@@ -3,18 +3,12 @@ package com.huajing.sys.entity;
 
 import java.util.Date;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
-
-import com.huajing.common.config.Global;
-import com.huajing.common.persistence.DataEntity;
-
 /**
  * 用户Entity
  * @author MingDingLi
  * @version 2013-12-05
  */
-public class User extends DataEntity<User> {
+public class User {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -50,15 +44,12 @@ public class User extends DataEntity<User> {
 
 	public User() {
 		super();
-		this.loginFlag = Global.YES;
 	}
 	
 	public User(String id){
-		super(id);
 	}
 
 	public User(String id, String loginName){
-		super(id);
 		this.loginName = loginName;
 	}
 
@@ -87,10 +78,6 @@ public class User extends DataEntity<User> {
 		this.loginFlag = loginFlag;
 	}
 
-	public String getId() {
-		return id;
-	}
-
 	
 
 	public String getLoginName() {
@@ -113,8 +100,6 @@ public class User extends DataEntity<User> {
 		return name;
 	}
 	
-	@Length(min=1, max=100, message="工号长度必须介于 1 和 100 之间")
-	//@ExcelField(title="工号", align=2, sort=45)
 	public String getNo() {
 		return no;
 	}
@@ -127,9 +112,6 @@ public class User extends DataEntity<User> {
 		this.name = name;
 	}
 
-	@Email(message="邮箱格式不正确")
-	@Length(min=0, max=200, message="邮箱长度必须介于 1 和 200 之间")
-	//@ExcelField(title="邮箱", align=1, sort=50)
 	public String getEmail() {
 		return email;
 	}
@@ -137,9 +119,6 @@ public class User extends DataEntity<User> {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	@Length(min=0, max=200, message="电话长度必须介于 1 和 200 之间")
-	//@ExcelField(title="电话", align=2, sort=60)
 	public String getPhone() {
 		return phone;
 	}
@@ -156,10 +135,6 @@ public class User extends DataEntity<User> {
 		this.mobile = mobile;
 	}
 
-	public String getRemarks() {
-		return remarks;
-	}
-	
 	public String getUserType() {
 		return userType;
 	}
@@ -229,26 +204,8 @@ public class User extends DataEntity<User> {
 		this.oldLoginDate = oldLoginDate;
 	}
 
-
-	
-	public boolean isAdmin(){
-		return isAdmin(this.id);
-	}
-	
 	public static boolean isAdmin(String id){
 		return id != null && "1".equals(id);
 	}
 	
-	@Override
-	public String toString() {
-		return id;
-	}
-
-	@Override
-	public void preInsert() {
-	}
-
-	@Override
-	public void preUpdate() {
-	}
 }

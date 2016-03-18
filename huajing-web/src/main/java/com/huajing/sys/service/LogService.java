@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.huajing.common.service.CrudService;
-import com.huajing.sys.dao.LogDao;
-import com.huajing.sys.entity.Log;
+import com.huajing.sys.dao.UserDao;
 import com.huajing.sys.entity.User;
 
 /**
@@ -19,15 +17,15 @@ import com.huajing.sys.entity.User;
  */
 @Service
 @Transactional(readOnly = true)
-public class LogService extends CrudService<LogDao, Log> {
+public class LogService {
 	
 	@Autowired
-	private LogDao logDao;
+	private UserDao userDao;
 
 	public Map<String,Object> login(User user) {
 		
 		System.out.println("登陆 service");
-		User userS = logDao.login(user);
+		User userS = userDao.login(user);
 		if(userS == null){
 			System.out.println("用户"+user.getLoginName()+"不存在");
 		}else{
