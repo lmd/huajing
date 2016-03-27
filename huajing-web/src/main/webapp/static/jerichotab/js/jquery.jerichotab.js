@@ -1,4 +1,4 @@
-﻿﻿$.extend($.fn, {
+﻿$.extend($.fn, {
     initJerichoTab: function(setting) {
         var opts = $.fn.extend({
             //the container of jerichotab(is required,  a jQuery format selector String as '.container' or '#container')

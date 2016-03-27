@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.huajing.sys.entity.User;
+import com.huajing.entity.User;
 
 /**
 * @Description: 防止重复请求提交

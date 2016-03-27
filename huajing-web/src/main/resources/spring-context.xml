@@ -15,7 +15,7 @@
 	<description>Spring Configuration</description>
 	
     <!-- 加载配置属性文件 -->
-	<context:property-placeholder ignore-unresolvable="true" location="classpath:huajing.properties" />
+	<context:property-placeholder ignore-unresolvable="true" location="classpath*:huajing.properties" />
 	
 	<!-- 加载应用属性实例，可通过  @Value("#{APP_PROP['jdbc.driver']}") String jdbcDriver 方式引用 -->
     <util:properties id="APP_PROP" location="classpath:huajing.properties" local-override="true"/>
@@ -29,7 +29,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="com.huajing"/>
-        <property name="mapperLocations" value="classpath:/mappings/**/*.xml"/>
+        <property name="mapperLocations" value="classpath*:/mappings/**/*.xml"/>
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
     </bean>
     
