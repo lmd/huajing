@@ -8,15 +8,24 @@
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../huajing-parent/pom.xml</relativePath>
 	</parent>
-	<!-- Entity信息 -->
-	<artifactId>huajing-entity</artifactId>
+	<!-- common 信息 -->
+	<artifactId>huajing-common</artifactId>
 
 	<dependencies>
-		<!-- Common -->
+		<!-- Servlet -->
 		<dependency>
-			<groupId>com.huajing</groupId>
-			<artifactId>huajing-common</artifactId>
-			<version>${com.huajing.version}</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
 		</dependency>
 	</dependencies>
 </project>
