@@ -17,12 +17,12 @@ import com.huajing.service.LogService;
 * @date 2016年2月25日 下午7:06:07
  */
 @Service
-@Transactional(readOnly = true)
 public class LogServiceImple implements LogService{
 	
 	@Autowired
 	private UserDao userDao;
-
+	
+	@Transactional(readOnly = false)
 	public Map<String,Object> login(User user) {
 		
 		System.out.println("登陆 service");
