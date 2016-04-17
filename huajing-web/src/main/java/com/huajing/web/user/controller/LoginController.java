@@ -34,7 +34,7 @@ public class LoginController{
 		user.setLoginName("lmd");
 		user.setPassword("sorry");
 		logService.login(user);
-		return "";
+		return "hello";
 	}
 
 	/**
